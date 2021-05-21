@@ -10,11 +10,11 @@ const sequelize = new Sequelize(env.DB, env.DB_USER, env.DB_PASSWORD, {
 })
 
 sequelize.authenticate().then(
-    function success() {
+    () => {
         console.log("Connected to DB");
     },
 
-    function fail(err) {
+    (err) => {
         console.log(`Error: ${err}`);
     }
 )
