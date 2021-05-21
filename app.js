@@ -1,5 +1,8 @@
 require('dotenv').config();
 const express = require('express');
+const db = require('./db');
+const user = require('./controllers/usercontroller');
+const game = require('./controllers/gamecontroller');
 
 const app = express();
 const { SERVER_PORT } = process.env;
