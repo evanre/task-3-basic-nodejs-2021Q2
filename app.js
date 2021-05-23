@@ -8,7 +8,9 @@ const app = express();
 const { SERVER_PORT } = process.env;
 
 db.sync();
-app.use(require('body-parser'));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/auth', user);
 app.use(require('./middleware/validate-session'));
