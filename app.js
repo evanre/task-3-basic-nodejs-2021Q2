@@ -1,13 +1,13 @@
 require('dotenv').config();
 const express = require('express');
-const db = require('./db');
+const { sequelize } = require('./db');
 const user = require('./controllers/usercontroller');
 const game = require('./controllers/gamecontroller');
 
 const app = express();
 const { SERVER_PORT } = process.env;
 
-db.sync();
+sequelize.sync();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

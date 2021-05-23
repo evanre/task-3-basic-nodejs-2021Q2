@@ -7,13 +7,11 @@ const sequelize = new Sequelize(env.DB, env.DB_USER, env.DB_PASSWORD, {
   host: env.DB_HOST,
   dialect: 'postgres',
   port: env.DB_PORT,
-  operatorsAliases: Sequelize.Op,
 });
 
-sequelize.authenticate().then(
-  () => console.log('Connected to DB'),
+sequelize
+  .authenticate()
+  .then(() => console.log('Connected to DB'))
+  .catch((e) => console.log(`Error: ${e}`));
 
-  (err) => console.log(`Error: ${err}`)
-);
-
-module.exports = sequelize;
+module.exports = { sequelize, Sequelize };
