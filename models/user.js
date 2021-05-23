@@ -1,22 +1,22 @@
-module.exports = (sequelize, DataTypes) =>
+module.exports = (sequelize, { STRING }) =>
   sequelize.define('user', {
     full_name: {
-      type: DataTypes.STRING,
+      type: STRING,
       allowNull: false,
     },
 
     username: {
-      type: DataTypes.STRING,
+      type: STRING,
       allowNull: false,
     },
 
     passwordHash: {
-      type: DataTypes.STRING,
+      type: STRING,
       allowNull: false,
     },
 
     email: {
-      type: DataTypes.STRING,
+      type: STRING,
       allowNull: false,
       validate: {
         isEmail: true,
